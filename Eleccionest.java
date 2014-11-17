@@ -366,8 +366,9 @@ public class Eleccionest {
             		System.out.println(" \nideologia: "+ partidos.get(d).getIdeologia());
             		System.out.println(" \nCantidad de militantes: "+ partidos.get(d).getCant_militantes());
             		System.out.println(" \nCantidad de militantes: "+ partidos.get(d).getPrevias_elecciones());
-        	}	
-			
+        	}
+        	//vaciar el arraylist de tipo poartidos	
+			partidos.clear();
 
         }
         break;
