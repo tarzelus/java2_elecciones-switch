@@ -37,7 +37,7 @@ public class Eleccionest {
 
 			System.out.print("\n-------------introduce los datos del habitante------------------");	
 
-			//herramientas para escribir en el fichero
+			//*******************herramientas para escribir en el fichero****************************
 			try 
 			{
 				
@@ -96,23 +96,23 @@ public class Eleccionest {
 
 
 		
+       	 	//********************************Herramientas para leer el fichero*********************
 
 			String nombrefichero2 = "censo.txt";	
 			String ruta2 ="/home/zubiri/Proyectosjava/java2_elecciones";
-			ArrayList<Habitante> habitantes = new ArrayList<Habitante>();
-		
-
-		
-
+			
 			
 			//lectura del fichero censo.txt	
 			File archivo2 = new File(ruta2, nombrefichero2);
 			FileReader leer2 = new FileReader (archivo2);
 			BufferedReader bf2 = new BufferedReader(leer2);
-			String salida2 = bf2.readLine();
- 
+			
 
+ 			//creacion de arraylist para ir metiendo los datos del txt
+			ArrayList<Habitante> habitantes = new ArrayList<Habitante>();
 		
+			String salida2 = bf2.readLine();
+
 			do
 			{
 				// se le da valor a la variable de salida de tipo string de la linea que lee
@@ -120,7 +120,7 @@ public class Eleccionest {
 				//Coje el valor de string que tiene la linea completa y lo divide en diferentes secciones
 				String [] cortarString = salida2.split(",");	
 			
-				//se le da valor a cada tributo del partido
+				//se le da valor a cada Atributo del objeto de tipo habitante
 				Habitante habi = new Habitante(); 
 				habi.setDni(cortarString[0]);
 				habi.setNombre(cortarString[1]);
@@ -130,7 +130,8 @@ public class Eleccionest {
 					if (Integer.parseInt(cortarString[3]) >= 18)
 					{
 
-						//el valor que se le ha dado a cada atributo se lo pasa al objeto de tipo arraylist de partido
+						//Despues de darle valor a cada atributo del objeto de tipo habitante todos estos se le asignan
+						//   al objeto de arraylist de tipo habitante
 						habitantes.add(habi);
 					}
 			
@@ -145,7 +146,7 @@ public class Eleccionest {
 
      		System.out.println("Estos son los datos de los censados: ");
 
-			//imprimira la informacion del array de habitantes
+			//imprimira la informacion del arraylist del objeto de habitantes
 			for(int t=0; t<habitantes.size(); t++)
         	{
          	   System.out.println("  --------------------------");
@@ -156,17 +157,13 @@ public class Eleccionest {
        		 }	
 			
 
-			//cerrar el case de h
+		}
+		break;
 
 			//-------------------------------------------Inmueble------------------------------------------------	
 
-		}
-		break;
  		case 'i':
 		{
-
-
-		
 
 
 			String direccion, provincia, localidad, fecha_construc;
@@ -211,11 +208,13 @@ public class Eleccionest {
 
 		}
 		break;
+
+		//-------------------------------------------Espacio Publico------------------------------------------------
+
  		case 'e':
 		{
 
 
-			//-------------------------------------------Espacio Publico------------------------------------------------
 
 			String direccione, tipo, localidade;
 
@@ -288,6 +287,19 @@ public class Eleccionest {
 			System.out.print("\ningresa la censo de la ciudad:  ");
 			censo = sc.nextInt();
 			ayuntamiento.setCenso(censo);
+
+			//impreion de los datos de ayuntamiento
+
+			System.out.print("\n-------------Estos son los datos del Ayuntamiento------------------");	
+
+			System.out.println("\nLocalidad: " + ayuntamiento.getLocalidad());
+			System.out.println("\nAlcalde: " + ayuntamiento.getAlcalde());
+			System.out.println("\nGobierno: " + ayuntamiento.getGobierno());
+			System.out.println("\nCodigo postal: " + ayuntamiento.getCod_postal());
+			System.out.println("\nExtension de los terrenos: " + ayuntamiento.getExtension());
+			System.out.println("\nPopulacion:  " + ayuntamiento.getPopulacion());
+			System.out.println("\nGente censada: " + ayuntamiento.getCenso());
+
 
 		}
 		break;

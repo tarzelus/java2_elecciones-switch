@@ -73,7 +73,7 @@ public class Ayuntamiento {
 
 //--------------------censo------------------------
 
-		public int getaCenso()
+		public int getCenso()
 		{
 			return Censo;
 		}
